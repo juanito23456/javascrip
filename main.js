@@ -121,6 +121,18 @@
 //    alert("BIENVENID@ AL SITIO");
 //} else {alert("debes ser mayor de edad para ingresar")}
 
+
+//let numero = Number (prompt("ingrese un numero:"));
+//const MAYOR = (numero > 1000);
+
+//if (MAYOR){alert("Bien Hecho")};
+
+//let text = prompt("I45ngrese una palabra:");
+//if (text == "hola"){console.log("bien hecho")}
+
+
 //operadores logicos
+
+//
 
 
