@@ -134,5 +134,125 @@
 //operadores logicos
 
 //
+const form = document.getElementById("signup-form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // prevent the form from submitting
+  
+  const username = form.elements["username"].value;
+  const email = form.elements["email"].value;
+  const password = form.elements["password"].value;
+  
+  // validate the input
+  if (!username || !email || !password) {
+    alert("Please fill in all fields.");
+    return;
+  }
+  
+  // make an API call to sign up the user
+  // (replace this with your own API call)
+  signUpUser(username, email, password)
+    .then(() => {
+      alert("Sign up successful!");
+      form.reset();
+    })
+    .catch((error) => {
+      alert("Sign up failed: " + error.message);
+    });
+});
+
+function signUpUser(username, email, password) {
+  return new Promise((resolve, reject) => {
+    // make an API call to sign up the user
+    // (replace this with your own API call)
+    setTimeout(() => {
+      const success = Math.random() < 0.5;
+      if (success) {
+        resolve();
+      } else {
+        reject(new Error("Failed to sign up user."));
+      }
+    }, 1000); // simulate network delay of 1 second
+  });
+}
+
+// carrito
 
 
+let precio1 = parseFloat(prompt("Ingresa el precio 1:"));
+let precio2 = parseFloat(prompt("Ingresa el precio 2:"));
+let precio3 = parseFloat(prompt("Ingresa el precio 3:"));
+
+
+
+let suma = precio1 + precio2 + precio3;
+
+alert("La suma de los precios es: " + suma);
+ 
+
+//cuotas
+
+
+let precioTotal = parseFloat(prompt("Ingresa el precio total:"));
+let numCuotas = parseInt(prompt("Ingresa el número de cuotas:"));
+
+let precioCuota = precioTotal / numCuotas;
+
+alert("El precio por cuota es: " + precioCuota.toFixed(2));
+
+
+
+//iva y 10%
+
+
+let precio = parseFloat(prompt("Ingresa el precio del producto:"));
+
+let impuesto = precio * 0.22;
+let descuento = precio * 0.1;
+
+let precioFinal = precio + impuesto - descuento;
+
+alert("El precio final con impuestos y descuentos incluidos es: " + precioFinal.toFixed(2));
+
+//turno
+
+
+let numTurnos = parseInt(prompt("Ingresa el número de su turno:"));
+
+if (numTurnos > 7) {
+  alert("Lo siento, no se pueden atender más turnos.");
+} else {
+  let tiempoEspera = numTurnos ;
+
+  alert("El tiempo de espera estimado es de " + tiempoEspera + " horas desde las 8am.");
+}
+
+// edades
+
+let numPersonas = parseInt(prompt("Ingresa el número de personas registradas:"));
+let sumaEdades = 0;
+
+for (let i = 1; i <= numPersonas; i++) {
+  let edad = parseInt(prompt("Ingresa la edad de la persona " + i + ":"));
+  sumaEdades += edad;
+}
+
+let edadPromedio = sumaEdades / numPersonas;
+
+alert("La edad promedio de las personas registradas es: " + edadPromedio.toFixed(2));
+
+
+
+//alumno 
+
+let numMaterias = 10;
+let sumaCalificaciones = 0;
+
+for (let i = 1; i <= numMaterias; i++) {
+  let calificacion = parseInt(prompt("Ingresa la calificación de la materia " + i + " (del 1 al 12):"));
+  sumaCalificaciones += calificacion;
+}
+
+let promedioCalificaciones = sumaCalificaciones / numMaterias;
+let notaFinal = (promedioCalificaciones * 10) / 12;
+
+alert("La nota final del alumno es: " + notaFinal.toFixed(2));
