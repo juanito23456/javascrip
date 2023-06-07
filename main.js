@@ -133,47 +133,7 @@
 
 //operadores logicos
 
-//
-const form = document.getElementById("signup-form");
-form.addEventListener("submit", (event) => {
-  event.preventDefault(); // prevent the form from submitting
-  
-  const username = form.elements["username"].value;
-  const email = form.elements["email"].value;
-  const password = form.elements["password"].value;
-  
-  // validate the input
-  if (!username || !email || !password) {
-    alert("Please fill in all fields.");
-    return;
-  }
-  
-  // make an API call to sign up the user
-  // (replace this with your own API call)
-  signUpUser(username, email, password)
-    .then(() => {
-      alert("Sign up successful!");
-      form.reset();
-    })
-    .catch((error) => {
-      alert("Sign up failed: " + error.message);
-    });
-});
 
-function signUpUser(username, email, password) {
-  return new Promise((resolve, reject) => {
-    // make an API call to sign up the user
-    // (replace this with your own API call)
-    setTimeout(() => {
-      const success = Math.random() < 0.5;
-      if (success) {
-        resolve();
-      } else {
-        reject(new Error("Failed to sign up user."));
-      }
-    }, 1000); // simulate network delay of 1 second
-  });
-}
 
 // carrito
 
@@ -244,7 +204,7 @@ alert("La edad promedio de las personas registradas es: " + edadPromedio.toFixed
 
 //alumno 
 
-let numMaterias = 10;
+let numMaterias = 5;
 let sumaCalificaciones = 0;
 
 for (let i = 1; i <= numMaterias; i++) {
@@ -256,3 +216,28 @@ let promedioCalificaciones = sumaCalificaciones / numMaterias;
 let notaFinal = (promedioCalificaciones * 10) / 12;
 
 alert("La nota final del alumno es: " + notaFinal.toFixed(2));
+
+var elemento = document.getElementById('miElemento');
+
+elemento.innerHTML = 'Nuevo contenido'; // Cambiar el contenido del elemento
+elemento.style.color = 'red'; // Cambiar el color de fuente del elemento
+elemento.appendChild(nuevoElemento); // Agregar un nuevo elemento como hijo
+
+elemento.addEventListener('click', miFuncion); // Agregar un evento de clic al elemento
+
+var elemento = document.getElementById('miElemento');
+
+function miFuncion() {
+  // Código a ejecutar cuando ocurra el evento
+}
+
+elemento.addEventListener('click', miFuncion);
+
+function miFuncion() {
+  console.log('El evento ha ocurrido');
+  // Otras acciones a realizar
+}
+
+elemento.addEventListener('click', function() {
+  // Código a ejecutar cuando ocurra el evento
+});
